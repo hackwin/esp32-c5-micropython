@@ -20,7 +20,7 @@ def scan_wifi():
         ssid_str = ssid.decode('utf-8')
         
         band = "2.4 GHz" if 1 <= channel <= 14 else "5 GHz"
-        
+         
         if rssi >= -50:
             quality = "Excellent"
         elif rssi >= -60:
@@ -34,7 +34,7 @@ def scan_wifi():
         
         sec = AUTH_MODES.get(authmode, "Unknown")
         print(f"SSID: {ssid_str:<20} | MAC: {bssid_str} | Ch: {channel} | {band} | RSSI: {rssi} {quality} | Sec: {sec}")    
-
+        wlan.active(False)
+        
 scan_wifi()
-#wlan.active(False)
 print("Scan complete.")
